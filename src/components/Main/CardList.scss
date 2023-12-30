@@ -1,0 +1,9 @@
+.cardlist_container {
+    flex-grow: 4;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 40%;
+    gap: 4px;
+    overflow-y: scroll;
+    justify-content: flex-start;
+}

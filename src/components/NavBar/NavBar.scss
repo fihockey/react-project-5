@@ -1,0 +1,9 @@
+.navbar_container {
+    border: 2px solid black;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px;
+    flex-direction: column;
+}
