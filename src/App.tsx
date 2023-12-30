@@ -10,11 +10,14 @@ function App() {
   
 
   return (
+    <div className="title_container">
+    <h1>Bonkers For Beer</h1>
     <div className="app_container">
       <BeerContext.Provider value={{ text, setText, filter, setFilter }}>
         <Navbar/>
         <CardList />
       </BeerContext.Provider>
+    </div>
     </div>
   )
 }
