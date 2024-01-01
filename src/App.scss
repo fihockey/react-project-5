@@ -1,0 +1,13 @@
+@use "./variables/variables.scss" as *;
+
+.app_container {
+  display: flex;
+  height: 100vh;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.title_container {
+  text-align: center;
+  font-family: $primary-font;
+}

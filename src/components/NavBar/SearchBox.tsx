@@ -7,7 +7,7 @@ const SearchBox = () => {
     const { setText } = useContext(BeerContext);
 
     return (
-        <input className="beer_search" type="text" onChange={event => setText(event.target.value)} />
+        <input placeholder="Search those beers..." className="beer_search" type="text" onChange={event => setText(event.target.value)} />
     )
 
 

@@ -21,7 +21,7 @@ const CardList = () => {
         }, [])
 
         const filterBeers = (beers?: Beer[]) => {
-            if (filter === 'High ABV (> 6.0%)') return beers?.filter((beer) => beer.abv > 6.0)
+            if (filter === 'High ABV (> 6.0%)') return beers?.filter((beer) => beer.abv > 6.0) 
 
             if (filter === 'Acidic (ph < 4)') return beers?.filter((beer) => beer.ph < 4)
 
