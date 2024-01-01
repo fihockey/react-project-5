@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './App.css'
+import './App.scss'
 import CardList from './components/Main/CardList'
-import Navbar from './components/NavBar'
+import Navbar from './components/NavBar/NavBar'
 import { BeerContext } from './context/BeerContext'
 
 function App() {
