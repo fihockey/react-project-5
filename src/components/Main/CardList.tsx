@@ -1,13 +1,21 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Beer } from '../Data/types';
 import Card from './Card'
 import './cardlist.scss'
-import { BeerContext } from '../../context/BeerContext';
 
-const CardList = () => {
-    const { text, filter } = useContext(BeerContext);
 
-    const [beers, setBeers] = useState<Beer[]>()
+type CardListProps = {
+    highABV: boolean
+    acidic: boolean
+    classicRange: boolean
+}
+
+const CardList = ({highABV, acidic, classicRange}: CardListProps) => {
+    const [ text ] = useState("");
+
+    const [ beers, setBeers ] = useState<Beer[]>()
+
+    
 
     const getBeers = async () => {
         const url = `https://api.punkapi.com/v2/beers?page=2&per_page=80`;
@@ -22,12 +30,18 @@ const CardList = () => {
 
         const filterBeers = (beers?: Beer[]) => {
     
-            if (filter === 'High ABV (> 6.0%)') return beers?.filter((beer) => beer.abv > 6.0) 
+            if (highABV == true) {
+                return beers?.filter((beer) => beer.abv > 6.0) 
+            }
 
-            if (filter === 'Acidic (ph < 4)') return beers?.filter((beer) => beer.ph < 4)
+            if (acidic == true) {
+                return beers?.filter((beer) => beer.ph < 4)
+            }
 
-            if (filter === 'Classic Range') beers?.filter((beer) => beer.ph > 4 && beer.abv < 6.0)
-
+            if (classicRange == true) {
+                return beers?.filter((beer) => beer.ph > 4 && beer.abv < 6.0)  
+            }  
+            
             return beers
         }
     

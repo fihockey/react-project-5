@@ -1,26 +1,29 @@
-import { useContext } from "react";
-import { useState } from "react";
+// import { useContext } from "react";
 import FilterItem from "./FilterItem";
 import './filters.scss';
-import { BeerContext } from "../../../context/BeerContext";
 
-const FilterList = () => {
-    const { filter, setFilter } = useContext(BeerContext);
 
-    
-    const filters = [ 'High ABV (> 6.0%)', 'Classic Range', 'Acidic (ph < 4)']
+type FilterListProps = {
+    handleHighABVFilter: () => void 
+    handleAcidicFilter: () => void
+    handleClassicRangeFilter: () => void
+}
 
-    const handleFilter = (name : string) => {
-        if (filter === name) setFilter('')
-
-        setFilter(name)
-    }
+const FilterList = ({handleHighABVFilter, handleAcidicFilter, handleClassicRangeFilter} : FilterListProps) => {
 
     return (
         <div className="filterlist_container">
-            {filters.map((f) => 
-                <FilterItem key={f} name={f} handleFilter={handleFilter} />
-            )}
+            {/* {filters.map((f) => 
+                <FilterItem 
+                    key={f} 
+                    name={f} 
+                    handleFilter={handleHighABVFilter || 
+                    handleAcidicFilter || 
+                    handleClassicRangeFilter} />
+            )} */}
+            <FilterItem name="High ABV (> 6.0%)" handleFilter={handleHighABVFilter}/>
+            <FilterItem name="Acidic (ph < 4)" handleFilter={handleAcidicFilter}/>
+            <FilterItem name="Classic Range" handleFilter={handleClassicRangeFilter}/>
         </div>
     )
 }
