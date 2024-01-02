@@ -10,7 +10,7 @@ const CardList = () => {
     const [beers, setBeers] = useState<Beer[]>()
 
     const getBeers = async () => {
-        const url = `https://api.punkapi.com/v2/beers`;
+        const url = `https://api.punkapi.com/v2/beers?page=2&per_page=80`;
         const res = await fetch(url);
         const data: Beer[] = await res.json();
         setBeers(data);
@@ -21,6 +21,7 @@ const CardList = () => {
         }, [])
 
         const filterBeers = (beers?: Beer[]) => {
+    
             if (filter === 'High ABV (> 6.0%)') return beers?.filter((beer) => beer.abv > 6.0) 
 
             if (filter === 'Acidic (ph < 4)') return beers?.filter((beer) => beer.ph < 4)
