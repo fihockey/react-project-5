@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import { FormEvent, SetStateAction, useState } from 'react';
 import './App.scss'
 import CardList from './components/Main/CardList'
 import Navbar from './components/NavBar/NavBar'
-// import { BeerContext } from './context/BeerContext'
+
 
 function App() {
-  // const [text, setText] = useState("");
-  // const [filter, setFilter] = useState("")
-  // value={{ text, setText, filter, setFilter }}
+  
   const [highABV, setHighABV] = useState(false);
   const [acidic, setAcidic] = useState(false);
   const [classicRange, setClassicRange] = useState(false);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleHighABVFilter = () => {
     setHighABV(!highABV);
@@ -18,12 +17,16 @@ function App() {
   const handleAcidicFilter = () => {
     setAcidic(!acidic);
   };
-
   const handleClassicRangeFilter = () => {
     setClassicRange(!classicRange);
   };
 
-  
+  const handleSearchQuery = (event: FormEvent<HTMLInputElement>) => {
+    const cleanInput = event.currentTarget.value.toLowerCase();
+    setSearchQuery(cleanInput);
+  }
+
+
   return (
     <div className="title_container">
     <h1>Bonkers For Beer</h1>
@@ -31,10 +34,13 @@ function App() {
         <Navbar handleHighABVFilter={handleHighABVFilter}
         handleAcidicFilter={handleAcidicFilter}
         handleClassicRangeFilter={handleClassicRangeFilter}
+        handleSearchQuery={handleSearchQuery}
         />
         <CardList highABV={highABV}
         acidic={acidic}
-        classicRange={classicRange}/>
+        classicRange={classicRange}
+        searchQuery={searchQuery}/>
+        
     </div>
     </div>
   )

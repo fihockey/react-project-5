@@ -1,12 +1,21 @@
 import './searchbox.scss'
-// import { BeerContext } from '../../context/BeerContext';
 
 
-const SearchBox = () => {
-    // const { setText } = useContext(BeerContext);
+type SearchBoxProps = {
+    handleSearchQuery: () => void
+    searchQuery: string
+}
+
+const SearchBox = ({handleSearchQuery, searchQuery} : SearchBoxProps) => {
+
+    // const searchBeers = (beer: Beer[]) => {
+    //     if (text == beer.name.toLowerCase().icluders(searchQuery.toLowerCase()))
+    //     return beer.name.toLowerCase().icluders(searchQuery.toLowerCase()
+    // }
+
 
     return (
-        <input placeholder="Search those beers..." className="beer_search" type="text" />
+        <input placeholder="Search those beers..." className="beer_search" type="text" value={searchQuery} onChange={handleSearchQuery}/>
     )
 
 

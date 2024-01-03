@@ -8,9 +8,10 @@ type CardListProps = {
     highABV: boolean
     acidic: boolean
     classicRange: boolean
+    searchQuery: string
 }
 
-const CardList = ({highABV, acidic, classicRange}: CardListProps) => {
+const CardList = ({highABV, acidic, classicRange, searchQuery}: CardListProps) => {
     const [ text ] = useState("");
 
     const [ beers, setBeers ] = useState<Beer[]>()
@@ -44,6 +45,11 @@ const CardList = ({highABV, acidic, classicRange}: CardListProps) => {
             
             return beers
         }
+
+        // const searchBeers = (beer: Beer[]) => {
+        //     if (text == beer.name.toLowerCase().icluders(searchQuery.toLowerCase()))
+        //     return
+        // }
     
     return (
         <div className="cardlist_container">
@@ -53,8 +59,8 @@ const CardList = ({highABV, acidic, classicRange}: CardListProps) => {
                     <Card beer={beer} />
                 );
              }
+    
             })}
-         
         </div>
     )
 

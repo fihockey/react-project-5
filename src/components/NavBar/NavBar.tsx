@@ -6,14 +6,17 @@ type NavBarProps = {
     handleHighABVFilter: () => void 
     handleAcidicFilter: () => void
     handleClassicRangeFilter: () => void
+    handleSearchQuery: () => void
+    searchQuery: string
 }
 
 
-const Navbar = ({handleHighABVFilter, handleAcidicFilter, handleClassicRangeFilter} : NavBarProps) => {
+const Navbar = ({handleHighABVFilter, handleAcidicFilter, handleClassicRangeFilter, handleSearchQuery, searchQuery} : NavBarProps) => {
 
     return (
         <div className="navbar_container">
-            <SearchBox />
+            <SearchBox handleSearchQuery={handleSearchQuery}
+            searchQuery={searchQuery}/>
             <FilterList handleHighABVFilter={handleHighABVFilter}
             handleAcidicFilter={handleAcidicFilter}
             handleClassicRangeFilter={handleClassicRangeFilter}/>
