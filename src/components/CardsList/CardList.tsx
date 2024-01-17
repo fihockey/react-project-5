@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Beer } from "../Data/types";
-import Card from "./Card";
+import Card from "../Card/Card";
 import "./cardlist.scss";
 
 type CardListProps = {

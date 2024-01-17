@@ -1,6 +1,6 @@
 import { ChangeEventHandler } from "react";
-import FilterList from "./Filters/FiltersList";
-import SearchBox from "./SearchBox/SearchBox";
+import FilterList from "../FilterList/FiltersList";
+import SearchBox from "../SearchBox/SearchBox";
 import "./navbar.scss";
 
 type NavBarProps = {
