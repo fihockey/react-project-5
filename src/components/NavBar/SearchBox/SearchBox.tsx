@@ -1,26 +1,21 @@
-import './searchbox.scss'
-
+import { ChangeEventHandler } from "react";
+import "./searchbox.scss";
 
 type SearchBoxProps = {
-    handleSearchQuery: () => void
-    searchQuery: string
-}
+  handleSearchQuery: ChangeEventHandler<HTMLInputElement>;
+  searchQuery: string;
+};
 
-const SearchBox = ({handleSearchQuery, searchQuery} : SearchBoxProps) => {
+const SearchBox = ({ handleSearchQuery, searchQuery }: SearchBoxProps) => {
+  return (
+    <input
+      placeholder="Search those beers..."
+      className="beer_search"
+      type="text"
+      value={searchQuery}
+      onChange={handleSearchQuery}
+    />
+  );
+};
 
-    // const searchBeers = (beer: Beer[]) => {
-    //     if (text == beer.name.toLowerCase().icluders(searchQuery.toLowerCase()))
-    //     return beer.name.toLowerCase().icluders(searchQuery.toLowerCase()
-    // }
-
-
-    return (
-        <input placeholder="Search those beers..." className="beer_search" type="text" value={searchQuery} onChange={handleSearchQuery}/>
-    )
-
-
-}
-
-export default SearchBox
-
-// onChange={event => setText(event.target.value)} 
+export default SearchBox;
