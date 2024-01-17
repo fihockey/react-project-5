@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import "./App.scss";
-import CardList from "./components/Main/CardList";
+import CardList from "./components/CardsList/CardList";
 import Navbar from "./components/NavBar/NavBar";
 
 function App() {
